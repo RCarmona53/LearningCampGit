@@ -1,0 +1,49 @@
+What is git and install.
+Software de control de versiones.
+  ○ git init
+    Permite crear los proyectos con control de versiones.
+  ○ git clone
+    Se usa para crear una copia de un repositorio ya existente. Llama de manera internal al git init para crear el repositorio y luego copia los datos del 
+    repositorio existente y extrae el nuevo conjunto de archivos de trabajo.
+  ○ git add .
+    Añade los cambios hechos en el proyecto. 
+  ○ git commit
+    Guarda los cambios anteriormente añadidos.
+  ○ revert unpushed commit
+    Borra el commit mas reciente.
+● Branches:
+  ○ create branch
+    Para crear una nueva rama git branch nombre_branch. 
+  ○ switch between branches
+    Para navegar entre ramas git checkout nombre_branch.
+  ○ merge
+    Para fusionar dos ramas con los cambios hechos en alguna, git merge nombre_branch, estando parado en la rama donde se quieren agregar los cambios.
+  ○ conflicts
+    Son conflictos que se pueden dar generalmente con el trabajo en equipo, de que se cambia en dos repos distintos el mismo archivo o en uno se borra y en otro se cambia algo.
+  ○ remotes
+    Para agregar un nuevo remote se usa git remote add con dos argumentos remote_name y remote_URL.
+  ○ git pull
+    Se usa para descargar contenido de un repositorio remoto y actualizar con esos mismos cambios el repositorio local.
+  ○ git push
+    Se usa para cargar lo hecho en un repositorio local a un remoto.
+  ○ force push
+    Se usa generalmente luego de un git commit --amend, que se utiliza para modificar el nombre o realizar cambios el de el ultimo commit. Al actualizar ese commit da error el git push
+    por ende hay que forzar a que lo haga con un git push --force para enviar lo corregido.
+    
+Advanced Level:
+  ● stash
+    git stash guarda los cambios hechos en el codigo que uno esta trabajando para poder trabajar en otra cosa y luego continuar con los cambios hechos cuando uno decida.
+  ● rebase
+    Se utiliza para cambiar la base de una rama mediante un commit a otro commit base. git rebase nombre_base.
+  ● webhooks
+    Permiten recibir HTTP POST cargas dependiendo de eventos que sucedan en el repositorio
+  ● github actions. CI/CD
+    Con GitHub Actions podemos diseñar todo nuestro flujo de trabajo de manera automatizada. Podemos especificar cuando, cómo y que tareas hacer. 
+  CI // continuous-integration.yml
+    Este workflow se va a lanzar cuando se crea un pull request. 
+    Tiene un único job, que consiste en las comprobaciones de calidad. 
+    Básicamente lo que realiza, como se puede ver en cada step es ir lanzando los comandos que le especificamos: primero hacemos un checkout del código utilizando una acción que nos proporciona ya GitHub, luego instalamos las dependencias de composer y después vamos lanzando los comandos de cada una de nuestras herramientas.
+  CD // continuous-deployment.yml
+    Este workflow esta dedicado al despliegue de la aplicación. 
+    Se ejecuta cuando se realiza un push sobre la rama master.
+    De esta manera, cada vez que haya cambios en master pasaremos a realizar un despliegue en producción. Otro caso interesante sería en el que tuvieramos, por ejemplo, un entorno de preproducción o desarrollo, de manera que podemos especificar que cuando los cambios sean en otra determinada rama, se ejecute el despliegue a ese otro entorno.
