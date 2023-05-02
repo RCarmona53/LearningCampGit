@@ -163,7 +163,8 @@ class Room
     def self.inherited(subclass)
       @@subclasses << subclass
     end
-  end
+end
+
 # Final exercise
   module Gym
     def self.included(class_or_module)
